@@ -17,11 +17,13 @@ export default function Tables() {
   const prevHandler = () => {
     setCurrentPage((prev) => {
       if (prev > 1) return prev - 1;
+      return prev;
     });
   };
   const nextHandler = () => {
     setCurrentPage((prev) => {
       if (prev < totalPages) return prev + 1;
+      return prev;
     });
   };
   const searchHandler = (e) => {
@@ -80,11 +82,11 @@ export default function Tables() {
           </tbody>
         </table>
       </div>
-      <button onClick={prevHandler} disabled={currentPage === 1}>
+      <button onClick={prevHandler} >
         Previous
       </button>
       <button>{currentPage}</button>
-      <button onClick={nextHandler} disabled={currentPage === totalPages}>
+      <button onClick={nextHandler} >
         Next
       </button>
     </div>
@@ -93,3 +95,4 @@ export default function Tables() {
 
 const API_ENDPOINT =
   "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json";
+
