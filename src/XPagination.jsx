@@ -35,12 +35,12 @@ export default function Tables() {
       try {
         const res = await fetch(API_ENDPOINT);
         if (!res.ok) {
-          throw new Error("failed to fetch data");
+          throw new Error("Error in fetching API");
         }
         const finData = await res.json();
         setData(finData);
       } catch (error){
-        alert("Error in fetching data");
+        alert("Failed to fetch data");
       }
     };
     fetchData();
@@ -95,6 +95,7 @@ export default function Tables() {
 
 const API_ENDPOINT =
   "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json";
+
 
 
 
